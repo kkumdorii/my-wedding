@@ -162,6 +162,102 @@
         </div>
       </div>
     </section>
+<!-- 오시는 길 안내 Q&A -->
+<section style="padding:48px 24px; background:#fff; text-align:center;">
+  <div style="max-width:360px; margin:0 auto;">
+    <p style="font-family:'Nanum Myeongjo',serif; font-size:0.72rem;
+      letter-spacing:0.3em; color:#9a8878; margin-bottom:8px;">GUIDE</p>
+    <h2 style="font-family:'Nanum Myeongjo',serif; font-size:1.1rem;
+      color:#3d2e22; margin-bottom:32px;">이용 안내</h2>
+
+    <!-- 아코디언 아이템 1: 차량 -->
+    <div style="border-top:1px solid #e8ddd0; text-align:left;">
+      <button onclick="toggleAccordion('car')" style="
+        width:100%; padding:18px 4px; background:none; border:none;
+        display:flex; justify-content:space-between; align-items:center;
+        cursor:pointer; font-family:'Nanum Myeongjo',serif;">
+        <span style="font-size:0.88rem; color:#3d2e22; letter-spacing:0.05em;">
+          🚗 차량을 가져오신다면?
+        </span>
+        <span id="car-arrow" style="font-size:0.8rem; color:#9a8878; transition:transform 0.3s;">▼</span>
+      </button>
+      <div id="car-panel" style="display:none; padding:0 4px 20px;">
+        <p style="font-size:0.8rem; color:#6a5a4a; line-height:2.0; margin-bottom:16px;">
+          주차 후에는 에스컬레이터보다 <strong>엘리베이터 이용</strong>을 추천드려요.<br>
+          에스컬레이터와 엘리베이터 중 일부는 홀과 연결되지 않으니,<br>
+          <strong>아이벡스(IVEX) 연결 여부</strong>를 꼭 확인 후 탑승 부탁드립니다.<br>
+          <span style="color:#9a8878;">(안내요원에게 문의 or 입간판 확인)</span>
+        </p>
+
+        <div style="background:#faf8f5; padding:16px 18px; margin-bottom:12px;">
+          <p style="font-size:0.78rem; color:#3d2e22; font-weight:bold; margin-bottom:8px;">🅿️ 주차 안내</p>
+          <p style="font-size:0.78rem; color:#6a5a4a; line-height:1.9;">
+            · 총 3,000여대 주차 가능 (자리 넉넉합니다!)<br>
+            · 지하 5~6층 주차 추천<br>
+            · 기둥에 <strong>'IVEX'</strong> 표시된 구역에 주차하시면 엘리베이터 이용이 편리합니다
+          </p>
+        </div>
+
+        <div style="background:#faf8f5; padding:16px 18px;">
+          <p style="font-size:0.78rem; color:#3d2e22; font-weight:bold; margin-bottom:8px;">💳 주차 정산 안내</p>
+          <p style="font-size:0.78rem; color:#6a5a4a; line-height:1.9;">
+            · 2시간 무료 지원<br>
+            · 웰컴드링크존 노트북에서 <strong>사전 정산</strong> 꼭 부탁드립니다<br><br>
+            ⏰ <strong>2시간 초과 시 꿀팁!</strong><br>
+            지하 다이소에서 1,000원 물건 구매 후 주차 적립 가능!<br>
+            <span style="color:#9a8878;">(셀프 적립이라 1명 구매 후 여러 대 등록도 가능해요 😊)</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 아코디언 아이템 2: 대중교통 -->
+    <div style="border-top:1px solid #e8ddd0; border-bottom:1px solid #e8ddd0; text-align:left;">
+      <button onclick="toggleAccordion('transit')" style="
+        width:100%; padding:18px 4px; background:none; border:none;
+        display:flex; justify-content:space-between; align-items:center;
+        cursor:pointer; font-family:'Nanum Myeongjo',serif;">
+        <span style="font-size:0.88rem; color:#3d2e22; letter-spacing:0.05em;">
+          🚇 대중교통으로 오신다면?
+        </span>
+        <span id="transit-arrow" style="font-size:0.8rem; color:#9a8878;">▼</span>
+      </button>
+      <div id="transit-panel" style="display:none; padding:0 4px 20px;">
+        <div style="background:#faf8f5; padding:16px 18px; margin-bottom:12px;">
+          <p style="font-size:0.78rem; color:#6a5a4a; line-height:1.9;">
+            대중교통 이용 시 <strong>에스컬레이터 이용</strong>을 추천드립니다 😊<br>
+            <span style="color:#9a8878;">(사진에 표시된 에스컬레이터 이용해주세요!)</span>
+          </p>
+        </div>
+
+        <div style="background:#fff3f3; padding:16px 18px; margin-bottom:12px; border-left:3px solid #e8a0a0;">
+          <p style="font-size:0.78rem; color:#6a5a4a; line-height:1.9;">
+            ❗ 그 외 에스컬레이터는 홀과 연결되어 있지 않습니다<br>
+            헷갈리실 수 있으니 꼭 확인 부탁드려요 🙏
+          </p>
+        </div>
+
+        <div style="background:#faf8f5; padding:16px 18px;">
+          <p style="font-size:0.78rem; color:#3d2e22; font-weight:bold; margin-bottom:8px;">😅 찾기 귀찮다면?</p>
+          <p style="font-size:0.78rem; color:#6a5a4a; line-height:1.9;">
+            ✅ AK플라자 내 <strong>엘리베이터</strong> 이용<br>
+            ❌ AK플라자 내 에스컬레이터 이용 X
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleAccordion(id) {
+    const panel = document.getElementById(id + '-panel');
+    const arrow = document.getElementById(id + '-arrow');
+    const isOpen = panel.style.display === 'block';
+    panel.style.display = isOpen ? 'none' : 'block';
+    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+</script>
 
     <!-- ─── Account Section (축의금) ─── -->
     <section class="section account" id="account">
@@ -392,16 +488,63 @@
   <script src="script.js"></script>
 </body>
 <!-- RSVP 팝업 -->
-<div id="rsvp-overlay" style="
+<!-- 1단계: 인트로 팝업 -->
+<div id="rsvp-intro" style="
   display:flex; position:fixed; inset:0; z-index:9999;
-  background:rgba(0,0,0,0.55); align-items:center; justify-content:center;
-  padding: 20px; box-sizing:border-box;">
-  <div id="rsvp-box" style="
-    background:#faf8f5; padding:36px 28px; max-width:360px; width:100%;
-    text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.18);
-    max-height:90vh; overflow-y:auto; box-sizing:border-box;">
+  background:rgba(0,0,0,0.6); align-items:center; justify-content:center;
+  padding:20px; box-sizing:border-box;">
+  <div style="
+    background:#fff; padding:48px 32px; max-width:340px; width:100%;
+    text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.2); position:relative;">
 
-    <!-- 제목 -->
+    <button onclick="closeIntro()" style="
+      position:absolute; top:16px; right:16px; background:none; border:none;
+      font-size:1.1rem; color:#bbb; cursor:pointer;">✕</button>
+
+    <p style="font-family:'Nanum Myeongjo',serif; font-size:0.72rem;
+      letter-spacing:0.3em; color:#9a8878; margin-bottom:16px;">RSVP</p>
+
+    <h2 style="font-family:'Nanum Myeongjo',serif; font-size:1.1rem;
+      color:#1a1a1a; line-height:1.8; margin-bottom:12px;">
+      8월 30일,<br>참석 의사를<br>남겨주시겠어요?
+    </h2>
+
+    <p style="font-size:0.8rem; color:#888; line-height:1.9; margin-bottom:32px;">
+      소중한 분들을 한 분 한 분<br>
+      더욱 귀하게 모실 수 있도록<br>
+      참석 여부를 미리 알려주세요 🤍
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+<button onclick="openRsvpForm()" style="
+  width:100%; padding:15px; background:#3d2e22; color:#fff;
+  border:none; font-family:'Nanum Myeongjo',serif; font-size:0.85rem;
+  letter-spacing:0.1em; cursor:pointer;">
+  네, 남길게요
+</button>
+      <button onclick="hideTodayRsvp()" style="
+        width:100%; padding:13px; background:#f5f5f5; color:#888;
+        border:none; font-size:0.78rem; cursor:pointer; letter-spacing:0.05em;">
+        ✓ 오늘 하루 보지 않기
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 2단계: RSVP 폼 팝업 -->
+<div id="rsvp-form-overlay" style="
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.6); align-items:center; justify-content:center;
+  padding:20px; box-sizing:border-box;">
+  <div style="
+    background:#faf8f5; padding:36px 28px; max-width:360px; width:100%;
+    text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.2);
+    max-height:90vh; overflow-y:auto; box-sizing:border-box; position:relative;">
+
+    <button onclick="closeRsvpForm()" style="
+      position:absolute; top:16px; right:16px; background:none; border:none;
+      font-size:1.1rem; color:#bbb; cursor:pointer;">✕</button>
+
     <p style="font-family:'Nanum Myeongjo',serif; font-size:0.72rem;
       letter-spacing:0.3em; color:#9a8878; margin-bottom:8px;">RSVP</p>
     <h2 style="font-family:'Nanum Myeongjo',serif; font-size:1.1rem;
@@ -488,14 +631,13 @@
         font-family:'Nanum Myeongjo',serif;">
     </div>
 
-    <!-- 제출 버튼 -->
     <button onclick="submitRsvp()" style="
       width:100%; padding:15px; background:#3d2e22; color:#faf8f5;
       border:none; font-family:'Nanum Myeongjo',serif; font-size:0.85rem;
       letter-spacing:0.15em; cursor:pointer; margin-bottom:12px;">
       제출하기
     </button>
-    <button onclick="closeRsvp()" style="
+    <button onclick="closeRsvpForm()" style="
       background:none; border:none; font-size:0.78rem;
       color:#b5a090; cursor:pointer; letter-spacing:0.1em;">
       나중에 할게요
@@ -503,12 +645,12 @@
   </div>
 </div>
 
-<!-- 완료 팝업 -->
+<!-- 제출 완료 팝업 -->
 <div id="rsvp-done" style="
   display:none; position:fixed; inset:0; z-index:9999;
-  background:rgba(0,0,0,0.55); align-items:center; justify-content:center;">
+  background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
   <div style="background:#faf8f5; padding:48px 32px; max-width:300px;
-    width:90%; text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.18);">
+    width:90%; text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.2);">
     <p style="font-size:1.4rem; margin-bottom:16px;">🤍</p>
     <h2 style="font-family:'Nanum Myeongjo',serif; font-size:1rem;
       color:#3d2e22; margin-bottom:12px;">감사합니다</h2>
@@ -527,6 +669,36 @@
 <script>
   const selections = { attend: '', side: '', meal: '' };
 
+  window.addEventListener('load', () => {
+    const hidden = localStorage.getItem('rsvp-hidden-date');
+    const today = new Date().toDateString();
+    if (hidden !== today) {
+      document.getElementById('rsvp-intro').style.display = 'flex';
+    }
+  });
+
+  function closeIntro() {
+    document.getElementById('rsvp-intro').style.display = 'none';
+  }
+
+  function hideTodayRsvp() {
+    localStorage.setItem('rsvp-hidden-date', new Date().toDateString());
+    closeIntro();
+  }
+
+  function openRsvpForm() {
+    closeIntro();
+    document.getElementById('rsvp-form-overlay').style.display = 'flex';
+  }
+
+  function closeRsvpForm() {
+    document.getElementById('rsvp-form-overlay').style.display = 'none';
+  }
+
+  function closeDone() {
+    document.getElementById('rsvp-done').style.display = 'none';
+  }
+
   function selectBtn(group, value) {
     selections[group] = value;
     const groups = {
@@ -541,14 +713,6 @@
         btn.style.color = v === value ? '#faf8f5' : '#5c4a3a';
       }
     });
-  }
-
-  function closeRsvp() {
-    document.getElementById('rsvp-overlay').style.display = 'none';
-  }
-
-  function closeDone() {
-    document.getElementById('rsvp-done').style.display = 'none';
   }
 
   async function submitRsvp() {
@@ -576,9 +740,8 @@
       );
     } catch(e) {}
 
-    closeRsvp();
-    const done = document.getElementById('rsvp-done');
-    done.style.display = 'flex';
+    closeRsvpForm();
+    document.getElementById('rsvp-done').style.display = 'flex';
   }
 </script>
 </html>
