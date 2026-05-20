@@ -120,6 +120,113 @@
           </button>
         </div>
       </div>
+      <section class="section gallery" id="gallery">
+      <div class="section__inner">
+        <h2 class="section__title animate-item" data-animate="fade-up">갤러리</h2>
+        <div class="gallery__grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+<section style="padding:60px 24px; background:#fff; text-align:center;">
+      <p style="font-family:'Nanum Myeongjo',serif; font-size:0.72rem; letter-spacing:0.3em; color:#9a8878; margin-bottom:8px;">PHOTO SHARE</p>
+      <h2 style="font-family:'Nanum Myeongjo',serif; font-size:1.1rem; color:#3d2e22; margin-bottom:10px;">사진 선물하기</h2>
+      <p style="font-size:0.82rem; color:#9a8878; line-height:1.9; margin-bottom:32px;">
+        은정이와 성열이의 아름다운 순간을<br>공유해주세요 🤍
+      </p>
+
+      <div style="max-width:360px; margin:0 auto; text-align:left;">
+        <div style="margin-bottom:18px;">
+          <p style="font-size:0.8rem; color:#5c4a3a; margin-bottom:8px;">성함 <span style="color:#c08080;">*</span></p>
+          <input id="photo-sender-name" type="text" placeholder="성함을 입력해 주세요."
+            style="width:100%; padding:12px; border:1px solid #d4c4b0; background:#fff;
+            font-size:0.82rem; color:#5c4a3a; box-sizing:border-box; outline:none;
+            font-family:'Nanum Myeongjo',serif;">
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <p style="font-size:0.8rem; color:#5c4a3a; margin-bottom:8px;">사진 선택 <span style="color:#c08080;">*</span></p>
+          <input type="file" id="photo-upload-input" accept="image/*"
+            style="width:100%; padding:10px; border:1px solid #d4c4b0; background:#fff;
+            font-size:0.82rem; color:#5c4a3a; box-sizing:border-box; outline:none;
+            font-family:'Nanum Myeongjo',serif; cursor:pointer;">
+        </div>
+
+        <button onclick="uploadGuestPhoto()" id="photo-submit-btn" style="
+          width:100%; padding:15px; background:#3d2e22; color:#faf8f5;
+          border:none; font-family:'Nanum Myeongjo',serif; font-size:0.85rem;
+          letter-spacing:0.15em; cursor:pointer; margin-bottom:12px;">
+          사진 전송하기
+        </button>
+
+        <div id="photo-upload-status" style="display:none; text-align:center; padding:16px 0;">
+          <p style="font-family:'Nanum Myeongjo',serif; font-size:0.88rem; color:#3d2e22;" id="photo-status-text">
+            사진을 전송하고 있습니다... ⏳
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function uploadGuestPhoto() {
+        const senderName = document.getElementById('photo-sender-name').value.trim();
+        const fileInput = document.getElementById('photo-upload-input');
+        const statusDiv = document.getElementById('photo-upload-status');
+        const statusText = document.getElementById('photo-status-text');
+        const submitBtn = document.getElementById('photo-submit-btn');
+
+        if (!senderName) { alert("정확한 확인을 위해 성함을 입력해 주세요."); return; }
+        if (fileInput.files.length === 0) { alert("업로드할 사진을 선택해 주세요."); return; }
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        // UI 업데이트: 전송 중 상태 표시 및 버튼 비활성화
+        submitBtn.style.display = 'none';
+        statusDiv.style.display = 'block';
+        statusText.innerText = "사진을 안전하게 저장하고 있어요... ⏳";
+
+        reader.onload = function(e) {
+          const base64Data = e.target.result;
+          const payload = {
+            senderName: senderName,
+            fileName: `${senderName}_${Date.now()}_${file.name}`,
+            base64Data: base64Data
+          };
+
+          // 💡 GAS 웹앱 배포 후 발급받은 URL을 아래 쌍따옴표 안에 입력하세요!
+          const gasWebAppUrl = "여기에_GAS_웹앱_배포_URL을_입력하세요";
+
+          fetch(gasWebAppUrl, {
+            method: "POST",
+            body: JSON.stringify(payload)
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.result === "success") {
+              statusText.innerText = `🤍\n감사합니다!\n[${data.folderName}]님 폴더에 예쁘게 저장되었습니다.`;
+              document.getElementById('photo-sender-name').value = '';
+              document.getElementById('photo-upload-input').value = '';
+            } else {
+              statusText.innerText = "업로드 중 오류가 발생했습니다. 다시 시도해 주세요.";
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            statusText.innerText = "네트워크 통신 오류가 발생했습니다.";
+          })
+          .finally(() => {
+            // 4초 후 버튼 상태 초기화
+            setTimeout(() => {
+              statusDiv.style.display = 'none';
+              submitBtn.style.display = 'block';
+            }, 4000);
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    </script>
+<section class="section location" id="location">
     </section>
 
     <!-- ─── Our Story Section ─── -->
