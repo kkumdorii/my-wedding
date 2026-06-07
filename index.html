@@ -744,13 +744,15 @@
     document.getElementById('rsvp-done').style.display = 'flex';
   }
 </script>
+
 <!-- 네이버 지도 -->
 <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt"></script>
 <script>
   window.addEventListener('load', function() {
     var mapOptions = {
       center: new naver.maps.LatLng(37.4785, 126.8644),
-      zoom: 17
+      zoom: 17,
+      mapTypeId: naver.maps.MapTypeId.NORMAL
     };
     var map = new naver.maps.Map('naverMap', mapOptions);
     var marker = new naver.maps.Marker({
@@ -758,7 +760,7 @@
       map: map
     });
     var infoWindow = new naver.maps.InfoWindow({
-      content: '<div style="padding:8px 12px; font-size:0.8rem; color:#3d2e22;">📍 아이벡스컨벤션</div>'
+      content: '<div style="padding:8px 12px; font-size:0.8rem; font-family:\'Nanum Myeongjo\',serif; color:#3d2e22; white-space:nowrap;">📍 아이벡스컨벤션</div>'
     });
     infoWindow.open(map, marker);
   });
