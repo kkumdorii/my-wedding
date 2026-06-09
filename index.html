@@ -745,22 +745,24 @@
   }
 </script>
 <!-- 네이버 지도 -->
-<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt"></script>
+<script type="text/javascript"
+  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt"
+  onload="initNaverMap()">
+</script>
 <script>
-  window.addEventListener('load', function() {
-    var mapOptions = {
-      center: new naver.maps.LatLng(37.4785, 126.8644),
+  function initNaverMap() {
+    var position = new naver.maps.LatLng(37.47756, 126.86446);
+    var map = new naver.maps.Map('naverMap', {
+      center: position,
       zoom: 17
-    };
-    var map = new naver.maps.Map('naverMap', mapOptions);
+    });
     var marker = new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.4785, 126.8644),
+      position: position,
       map: map
     });
-    var infoWindow = new naver.maps.InfoWindow({
-      content: '<div style="padding:8px 12px; font-size:0.8rem; color:#3d2e22;">📍 아이벡스컨벤션</div>'
-    });
-    infoWindow.open(map, marker);
-  });
+    new naver.maps.InfoWindow({
+      content: '<div style="padding:8px 12px; font-size:0.8rem; color:#3d2e22; white-space:nowrap;">📍 아이벡스컨벤션</div>'
+    }).open(map, marker);
+  }
 </script>
 </html>
