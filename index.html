@@ -21,7 +21,6 @@
 
   <link rel="stylesheet" href="styles.css">
   <script src="config.js"></script>
-<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt&callback=initNaverMap"></script>
 </head>
 <body>
 
@@ -746,6 +745,9 @@
   }
 </script>
 <!-- 네이버 지도 -->
+<script type="text/javascript"
+  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt&callback=initNaverMap">
+</script>
 <script>
   window.navermap_authFailure = function() {
     var el = document.getElementById('naverMap');
