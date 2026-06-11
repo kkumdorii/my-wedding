@@ -154,24 +154,51 @@
           주소 복사
         </button>
         <div class="location__map animate-item" data-animate="scale-in">
-<!-- * 카카오맵 - 지도퍼가기 -->
-<!-- 1. 지도 노드 -->
-<div id="daumRoughmapContainer1781186744690" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+<!-- 카카오맵 -->
+<div style="position:relative; width:100%; overflow:hidden;">
 
-<!--
-	2. 설치 스크립트
-	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
--->
-<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+  <!-- 스크롤 잠금 오버레이 -->
+  <div id="mapLockOverlay" style="
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    z-index:10; display:flex; align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.08); cursor:pointer;"
+    onclick="unlockMap()" ontouchend="unlockMap()">
+    <div style="
+      background:rgba(0,0,0,0.55); color:#fff;
+      padding:10px 18px; border-radius:20px;
+      font-size:0.78rem; letter-spacing:0.05em; text-align:center;
+      pointer-events:none;">
+      🗺️ 탭하면 지도를 움직일 수 있어요
+    </div>
+  </div>
 
-<!-- 3. 실행 스크립트 -->
-<script charset="UTF-8">
-	new daum.roughmap.Lander({
-		"timestamp" : "1781186744690",
-		"key" : "2qsdszu5xtru",
-		"mapWidth" : "640",
-		"mapHeight" : "360"
-	}).render();
+  <div id="daumRoughmapContainer1781180202338" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+  <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+  <script charset="UTF-8">
+    new daum.roughmap.Lander({
+      "timestamp" : "1781180202338",
+      "key" : "pcvsnjbwwkb",
+      "mapWidth" : "640",
+      "mapHeight" : "320"
+    }).render();
+  </script>
+</div>
+
+<script>
+  function unlockMap() {
+    var overlay = document.getElementById('mapLockOverlay');
+    if (overlay) overlay.style.display = 'none';
+  }
+
+  // 지도 영역 벗어나면 자동으로 다시 잠금
+  document.addEventListener('scroll', function() {
+    var mapEl = document.getElementById('daumRoughmapContainer1781180202338');
+    var overlay = document.getElementById('mapLockOverlay');
+    if (!mapEl || !overlay) return;
+    var rect = mapEl.getBoundingClientRect();
+    var inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) overlay.style.display = 'flex';
+  });
 </script>
         </div>
         <div class="location__links animate-item" data-animate="fade-up">
