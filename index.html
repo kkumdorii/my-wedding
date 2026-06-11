@@ -154,7 +154,17 @@
           주소 복사
         </button>
         <div class="location__map animate-item" data-animate="scale-in">
-          <div id="naverMap" style="width:100%; height:280px; border-radius:4px;"></div>
+          <!-- 카카오맵 -->
+<div id="daumRoughmapContainer1781180202338" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+<script charset="UTF-8">
+  new daum.roughmap.Lander({
+    "timestamp" : "1781180202338",
+    "key" : "pcvsnjbwwkb",
+    "mapWidth" : "360",
+    "mapHeight" : "280"
+  }).render();
+</script>
         </div>
         <div class="location__links animate-item" data-animate="fade-up">
           <a class="btn btn--kakao" id="kakaoMapBtn" href="#" target="_blank" rel="noopener">카카오맵</a>
@@ -744,25 +754,23 @@
     document.getElementById('rsvp-done').style.display = 'flex';
   }
 </script>
-<!-- 네이버 지도 -->
-<script>
-  window.navermap_authFailure = function() {
-    var el = document.getElementById('naverMap');
-    if (el) el.innerHTML = '<p style="text-align:center; padding:20px; color:#9a8878; font-size:0.8rem;">지도를 불러올 수 없습니다.</p>';
-  };
-  function initNaverMap() {
-    var position = new naver.maps.LatLng(37.47756, 126.86446);
-    var map = new naver.maps.Map('naverMap', {
-      center: position,
-      zoom: 17
-    });
-    new naver.maps.Marker({
-      position: position,
-      map: map
-    });
-  }
-</script>
-<script type="text/javascript"
-  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt&callback=initNaverMap">
+<!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1781180202338" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1781180202338",
+		"key" : "pcvsnjbwwkb",
+		"mapWidth" : "640",
+		"mapHeight" : "360"
+	}).render();
 </script>
 </html>
