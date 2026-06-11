@@ -745,15 +745,11 @@
   }
 </script>
 <!-- 네이버 지도 -->
-<script type="text/javascript"
-  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt&callback=initNaverMap">
-</script>
 <script>
   window.navermap_authFailure = function() {
     var el = document.getElementById('naverMap');
     if (el) el.innerHTML = '<p style="text-align:center; padding:20px; color:#9a8878; font-size:0.8rem;">지도를 불러올 수 없습니다.</p>';
   };
-
   function initNaverMap() {
     var position = new naver.maps.LatLng(37.47756, 126.86446);
     var map = new naver.maps.Map('naverMap', {
@@ -765,5 +761,8 @@
       map: map
     });
   }
+</script>
+<script type="text/javascript"
+  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=z37jbyxkwt&callback=initNaverMap">
 </script>
 </html>
