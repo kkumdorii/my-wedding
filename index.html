@@ -131,13 +131,55 @@
       </div>
     </section>
 
-    <!-- ─── Gallery Section ─── -->
-    <section class="section gallery" id="gallery">
-      <div class="section__inner">
-        <h2 class="section__title animate-item" data-animate="fade-up">갤러리</h2>
-        <div class="gallery__grid" id="galleryGrid"></div>
-      </div>
-    </section>
+<!-- ─── Gallery Section ─── -->
+<section class="section gallery" id="gallery">
+  <div class="section__inner">
+    <h2 class="section__title animate-item" data-animate="fade-up">갤러리</h2>
+    <div class="gallery__grid" id="galleryGrid"></div>
+    <div id="galleryMore" style="display:none; text-align:center; margin-top:24px;">
+      <button onclick="showAllGallery()" style="
+        padding:12px 32px; background:none; border:1px solid #d4c4b0;
+        font-family:'Nanum Myeongjo',serif; font-size:0.82rem;
+        color:#5c4a3a; cursor:pointer; letter-spacing:0.1em;">
+        사진 더보기 ▼
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 갤러리 9장 제한
+  function limitGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    const items = grid.children;
+    if (items.length <= 9) return;
+
+    for (let i = 9; i < items.length; i++) {
+      items[i].style.display = 'none';
+    }
+    document.getElementById('galleryMore').style.display = 'block';
+  }
+
+  function showAllGallery() {
+    const grid = document.getElementById('galleryGrid');
+    const items = grid.children;
+    for (let i = 0; i < items.length; i++) {
+      items[i].style.display = '';
+    }
+    document.getElementById('galleryMore').style.display = 'none';
+  }
+
+  // 갤러리 로딩 완료 후 실행
+  const galleryObserver = new MutationObserver(function(mutations) {
+    const grid = document.getElementById('galleryGrid');
+    if (grid && grid.children.length > 0) {
+      setTimeout(limitGallery, 100);
+      galleryObserver.disconnect();
+    }
+  });
+  galleryObserver.observe(document.getElementById('galleryGrid'), { childList: true });
+</script>
 
     <!-- ─── Location Section ─── -->
     <section class="section location" id="location">
