@@ -532,8 +532,8 @@
 
     const formData = new URLSearchParams({
       'entry.993792992': name,
-      'entry.154488669': gbSelections.side,
-      'entry.1451465015': message
+      'entry.1451465015': gbSelections.side,
+      'entry.154488669': message
     });
 
     try {
@@ -755,10 +755,10 @@
           font-family:'Nanum Myeongjo',serif; font-size:0.82rem; color:#5c4a3a; cursor:pointer;">
           식사함
         </button>
-        <button onclick="selectBtn('meal','식사안함')" id="btn-식사안함"
+        <button onclick="selectBtn('meal','식사 안함')" id="btn-식사 안함"
           style="flex:1; padding:12px; border:1px solid #d4c4b0; background:#fff;
           font-family:'Nanum Myeongjo',serif; font-size:0.82rem; color:#5c4a3a; cursor:pointer;">
-          식사안함
+          식사 안함
         </button>
       </div>
     </div>
@@ -845,7 +845,7 @@
     const groups = {
       attend: ['참석','미참석'],
       side: ['신랑측','신부측'],
-      meal: ['식사함','식사안함']
+      meal: ['식사함','식사 안함']
     };
     groups[group].forEach(v => {
       const btn = document.getElementById('btn-' + v);
@@ -867,11 +867,11 @@
 
     const formData = new URLSearchParams({
       'entry.1954911982': name,
-      'entry.156513301': selections.side,
-      'entry.1782504363': selections.attend,
-      'entry.117262395': companion,
-      'entry.1854826146': selections.meal || '미선택',
-      'entry.1098312084': phone
+      'entry.117262395': selections.side,
+      'entry.1854826146': selections.attend,
+      'entry.156513301': companion,
+      'entry.1098312084': selections.meal || '',
+      'entry.1782504363': phone
     });
 
     try {
